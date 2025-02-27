@@ -223,7 +223,7 @@ class SassCompiler extends MultiFileCachingCompiler {
     if(output?.loadedUrls && output.loadedUrls.length > 0) {
       const skippedImportPaths = [];
       for(const loadedUrl of output.loadedUrls) {
-        const filePath = convertToStandardPath(loadedUrl.pathname);
+        const filePath = decodeURIComponent(convertToStandardPath(loadedUrl.pathname));
         const convertedFilePath = Plugin.convertToOSPath(filePath);
         const referencedImportPath = allFilesByPath.get(convertedFilePath);
         if(referencedImportPath) {
