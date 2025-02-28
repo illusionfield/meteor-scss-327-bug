@@ -157,8 +157,8 @@ class SassCompiler extends MultiFileCachingCompiler {
       // Try include paths if not found
       for(const includePath of includePaths) {
         const basename = decodeURIComponent(url);
-        const extendedUrl = new URL(path.join(includePath, basename));
-        const importPath = getRealImportPath(extendedUrl);
+        const extendedPath = path.join(includePath, basename);
+        const importPath = getRealImportPath(extendedPath);
         if(importPath) {
           const convertedImportPath = Plugin.convertToOSPath(importPath);
           return pathToFileURL(convertedImportPath);
